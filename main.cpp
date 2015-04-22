@@ -3,22 +3,20 @@
 #include <SFML\Window.hpp>
 
 #define BLOCK_SQUARE_SIZE 20
+#define MAP_BLOCK_NUM 20
 using namespace std;
 
-class g_map
-{
 
-};
 
 class g_map_block
 {
 public:
+    static int id;      //na przysz³oœæ
     int size_x;
     int size_y;
     int pos_x;
     int pos_y;
-
-
+    int block_id;
 
     char* blob;         //WskaŸnik do tablicy charów zawieraj¹cej zawartoœæ bloku mapy;
 
@@ -33,6 +31,7 @@ public:
         {
             *(blob+i) = fillwith;
         }
+        //block_id = id++;
     }
     ~g_map_block()
     {
@@ -53,9 +52,27 @@ public:
         *(blob+x*size_y + y) = l;
     }
 };
+
+class g_map
+{
+public:
+    g_map_block* block_ptr[MAP_BLOCK_NUM];
+    g_map()
+    {
+        for(int i = 0;i<MAP_BLOCK_NUM;i++)  //zerowanie tablicy wskaznikow
+        {
+            block_ptr[i] = 0;
+        }
+    }
+    void create_block()
+    {
+
+    }
+};
 int main()
 {
     cout << "Hello world!" << endl;
+    //g_map_block::id = 0;
     g_map_block blok0(BLOCK_SQUARE_SIZE,BLOCK_SQUARE_SIZE,0,0) ;
     blok0.setblock(5,10,'O');
     blok0.c_viev();

@@ -37,7 +37,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
-			<Add directory="SFML/include/SFML" />
+			<Add directory="SFML/include/" />
 		</Compiler>
 		<Linker>
 			<Add directory="SFML/lib" />
