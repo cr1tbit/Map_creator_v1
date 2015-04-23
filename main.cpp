@@ -120,7 +120,7 @@ int main()
     mapa0.create_block(BLOCK_SQUARE_SIZE,BLOCK_SQUARE_SIZE,0,0);
     mapa0.create_block(BLOCK_SQUARE_SIZE,BLOCK_SQUARE_SIZE,0,1);
     //int* test = mapa0.get_block_map();
-
+    //cout << mapa0.block_ptr[0];
     mapa0.block_ptr[0]->c_view();
     //cout <<test[0]<<"\n";
     //cout <<test[1]<<"\n";
